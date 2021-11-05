@@ -1,4 +1,4 @@
-using System.Data.Common;
+using Microsoft.Data.SqlClient;
 
 namespace QuizApp
 {
@@ -6,7 +6,10 @@ namespace QuizApp
     {
         public void NewUser(User user)
         {
-            
+            const string connectionString = 
+                @"Data Source = (localdb)\MSSQLLocalDB; " +
+                "Database = QuizDB " +
+                ""
         }
 
         public void RemoveUser(User user)
