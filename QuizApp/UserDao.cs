@@ -13,5 +13,10 @@ namespace QuizApp
         {
             
         }
+
+        public void RetrieveUser(User user)
+        {
+            
+        }
     }
 }
