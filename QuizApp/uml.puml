@@ -28,5 +28,9 @@ class Leaderboard{
 + UpdateLeaderBoard()
 }
 
+class Question{
+- _QuestionText : string
+- _Alternatives : string
+}
 
 @enduml
