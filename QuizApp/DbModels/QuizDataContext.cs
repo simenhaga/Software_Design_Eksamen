@@ -8,9 +8,9 @@ namespace QuizApp.DbModels
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server = (localdb\MSSQLLocalDB; )" +
-                                        "Database = QuizDB " +
-                                        "Trusted_Connection = True;");
+            optionsBuilder.UseSqlServer(@"Server=(localhost); " +
+                                        "database=QuizDB;" +
+                                        "trusted connection=true");
         }
     }
 }

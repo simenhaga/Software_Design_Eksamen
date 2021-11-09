@@ -6,10 +6,10 @@ namespace QuizApp
     {
         public void NewUser(User user)
         {
-            const string connectionString = 
-                @"Data Source = (localdb)\MSSQLLocalDB; " +
-                "Database = QuizDB " +
-                ""
+            const string connectionString =
+                @"Server=(localhost); " +
+                "database=QuizDB;" +
+                "trusted connection=true;";
         }
 
         public void RemoveUser(User user)
