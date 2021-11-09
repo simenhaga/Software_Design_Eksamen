@@ -2,8 +2,8 @@ namespace QuizApp
 {
     public class LeaderBoard
     {
-        protected string _userName { get; set; }
-        private double _score { get; set; }
+        public string UserName { get; set; }
+        public double Score { get; set; }
         public long Id { get; set; }
     }
 }
