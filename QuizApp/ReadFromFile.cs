@@ -10,13 +10,14 @@ namespace QuizApp {
     public class ReadFromFile {
 
         public static void CreateAnimalQuiz() {
-            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException(), @"TextFiles/AnimalQuestions.txt");;
-            List<string> lines = File.ReadAllLines(filePath).ToList();
-            //List<string> oneLine = File.Read(filePath).ToList();
+            string _filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException());;
+            _filePath = Directory.GetParent(Directory.GetParent(Directory.GetParent(_filePath).FullName).FullName).FullName;
+            _filePath += @"/TextFiles/AnimalQuestions.txt";
+            List<string> lines = File.ReadAllLines(_filePath).ToList();
 
-            // foreach (string line in lines) {
-            //     Console.WriteLine(line);
-            // }
+             foreach (string line in lines) {
+                 Console.WriteLine(line);
+             }
             
             
         }

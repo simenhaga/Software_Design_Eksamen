@@ -4,8 +4,7 @@ using static QuizApp.ReadFromFile;
 namespace QuizApp {
     class Program {
         public static void Main(string[] args) {
-            CreateAnimalQuiz();
-            
+
             Console.WriteLine("Hello! Welcome to our super cool quiz application. \r\n" + 
                               "Please enter your username");
 
@@ -51,6 +50,7 @@ namespace QuizApp {
                 {
                     case "1":
                         Console.WriteLine(animal);
+                        CreateAnimalQuiz();
                         break;
                     case "2":
                         Console.WriteLine(car);
