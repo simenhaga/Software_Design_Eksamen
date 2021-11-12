@@ -25,9 +25,8 @@ namespace QuizApp {
                 while((line = file.ReadLine()) != null) {
                     string[] element = line.Split('\n');
                     listOfAnimalQuestions.Add(new Questions(element[0], element[1],element[2], element[3]));
-            }
-
-            file.Close();
+                }
+                file.Close();
             return listOfAnimalQuestions;
         }
     }
