@@ -54,12 +54,15 @@ namespace QuizApp {
                         break;
                     case "2":
                         Console.WriteLine(car);
+                        CreateCarsQuiz();
                         break;
                     case "3":
                         Console.WriteLine(game);
+                        CreateGamesQuiz();
                         break;
                     case "4":
                         Console.WriteLine(geography);
+                        CreateGeographyQuiz();
                         break;
                     case "5":
                         Console.WriteLine(mixed);
