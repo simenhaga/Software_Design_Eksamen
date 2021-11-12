@@ -24,7 +24,13 @@ namespace QuizApp {
             }
             else
             {
-                Console.WriteLine("Welcome " + userName + "\r\n" + "Please choose a category");
+                Console.WriteLine("Welcome " + userName + "!\r\n" + 
+                                  "Enter the number of the quiz you want\r\n" +
+                                  "1. Animal quiz\r\n" +
+                                  "2. Car quiz\r\n" +
+                                  "3. Game quiz\r\n" +
+                                  "4. Geography quiz\r\n" +
+                                  "5. Mixed category quiz");
             }
 
             ChooseCategory();
