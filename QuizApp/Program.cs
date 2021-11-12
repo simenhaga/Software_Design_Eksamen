@@ -66,6 +66,7 @@ namespace QuizApp {
                         break;
                     case "5":
                         Console.WriteLine(mixed);
+                        ReadFromFiles.ReadQuestions();
                         break;
                     default:
                         Console.WriteLine(invalidInput);
