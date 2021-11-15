@@ -3,9 +3,12 @@ using static QuizApp.ReadFromFile;
 
 namespace QuizApp {
     class Program {
-        public static void Main(string[] args) {
+        public static void Main(string[] args)
+        {
+            OutputHandler outputHandler = new();
+           
 
-            Console.WriteLine("Hello! Welcome to our super cool quiz application. \r\n" + 
+            outputHandler.Write("Hello! Welcome to our super cool quiz application. \r\n" + 
                               "Please enter your username");
 
             var userName = Console.ReadLine();
@@ -14,16 +17,16 @@ namespace QuizApp {
             {
                 do
                 {
-                    Console.WriteLine("Username is already taken, please enter another username");
+                    outputHandler.Write("Username is already taken, please enter another username");
                     userName = Console.ReadLine();
 
                 } while (userName == "taken");
                 
-                Console.WriteLine("Welcome " + userName + "\r\n" + "Please choose a category");
+                outputHandler.Write("Welcome " + userName + "\r\n" + "Please choose a category");
             }
             else
             {
-                Console.WriteLine("Welcome " + userName + "!\r\n" + 
+                outputHandler.Write("Welcome " + userName + "!\r\n" + 
                                   "Enter the number of the quiz you want\r\n" +
                                   "1. Animal quiz\r\n" +
                                   "2. Car quiz\r\n" +
@@ -36,6 +39,7 @@ namespace QuizApp {
         }
         private static void ChooseCategory()
         {
+            OutputHandler outputHandler = new();
             while (true)
             {
                 const string animal = "You chose animal quiz";
@@ -49,27 +53,27 @@ namespace QuizApp {
                 switch (chosenCategory)
                 {
                     case "1":
-                        Console.WriteLine(animal);
+                        outputHandler.Write(animal);
                         CreateAnimalQuiz();
                         break;
                     case "2":
-                        Console.WriteLine(car);
+                        outputHandler.Write(car);
                         CreateCarsQuiz();
                         break;
                     case "3":
-                        Console.WriteLine(game);
+                        outputHandler.Write(game);
                         CreateGamesQuiz();
                         break;
                     case "4":
-                        Console.WriteLine(geography);
+                        outputHandler.Write(geography);
                         CreateGeographyQuiz();
                         break;
                     case "5":
-                        Console.WriteLine(mixed);
+                        outputHandler.Write(mixed);
                         ReadFromFiles.ReadQuestions();
                         break;
                     default:
-                        Console.WriteLine(invalidInput);
+                        outputHandler.Write(invalidInput);
                         continue;
                 }
 
