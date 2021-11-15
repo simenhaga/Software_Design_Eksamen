@@ -1,4 +1,4 @@
-﻿using static QuizApp.ReadFromFile;
+﻿using static QuizApp.QuizCreator;
 
 namespace QuizApp {
     class Program {
