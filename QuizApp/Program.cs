@@ -49,9 +49,8 @@ namespace QuizApp {
                 switch (chosenCategory)
                 {
                     case "1":
-                        OutputHandler.Write(animal); {
+                        OutputHandler.Write(animal); 
                         CreateAnimalQuiz(localPath: animal, @"/TextFiles/AnimalQuestions.txt");
-                    }
                         break;
                     case "2":
                         OutputHandler.Write(car);
