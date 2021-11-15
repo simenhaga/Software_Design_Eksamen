@@ -1,8 +1,5 @@
 using System;
 using System.Collections;
-using System.IO;
-using System.Reflection;
-using NUnit.Framework.Internal;
 
 
 namespace QuizApp {
