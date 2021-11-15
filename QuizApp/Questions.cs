@@ -16,7 +16,7 @@ namespace QuizApp
         
         public override string ToString()
         {
-            return string.Format("{0} {1} {2} {3}", this.question, this.optionOne, this.optionTwo, this.optionThree);
+            return string.Format("{0}\r\n 1. {1}\r\n 2. {2}\r\n 3. {3}\r\n", this.question, this.optionOne, this.optionTwo, this.optionThree);
         }
 
         public string Question { get; set; }
