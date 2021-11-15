@@ -1,12 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Threading;
-using NUnit.Framework;
-using Ubiety.Dns.Core;
+
 
 namespace QuizApp {
     public class ReadFromFile {
