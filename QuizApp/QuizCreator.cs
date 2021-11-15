@@ -2,75 +2,46 @@ using System;
 using System.Collections;
 using System.IO;
 using System.Reflection;
+using NUnit.Framework.Internal;
 
 
 namespace QuizApp {
     public class ReadFromFile {
 
-        public static void CreateAnimalQuiz() {
-            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException());
-            filePath = Directory.GetParent(Directory.GetParent(Directory.GetParent(filePath).FullName).FullName).FullName;
-            filePath += @"/TextFiles/AnimalQuestions.txt";
+
+        private static void CreateQuiz(string localPath, string filePath) {
+            localPath = PathManager.FindPath(filePath);
+            DrawQuiz(localPath);
+        }
+
+        private static void DrawQuiz(string localPath) {
             IList list = new ArrayList();
-            ReadFromFiles.ReadQuestions(filePath, ref list);
-            for (int i = 0; i < list.Count; i++)
-            {
+            ReadFromFiles.ReadQuestions(localPath, ref list);
+            for (int i = 0; i < list.Count; i++) {
                 Console.WriteLine(list[i].ToString());
             }
+
             Console.ReadKey();
         }
 
-        public static void CreateCarsQuiz() {
-            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException());
-            filePath = Directory.GetParent(Directory.GetParent(Directory.GetParent(filePath).FullName).FullName).FullName;
-            filePath += @"/TextFiles/CarsQuestions.txt";
-            IList list = new ArrayList();
-            ReadFromFiles.ReadQuestions(filePath, ref list);
-            for (int i = 0; i < list.Count; i++)
-            {
-                Console.WriteLine(list[i].ToString());
-            }
-            Console.ReadKey();
+        public static void CreateAnimalQuiz(string localPath, string filePath) {
+            CreateQuiz(localPath, filePath);
         }
         
-        public static void CreateGamesQuiz() {
-            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException());
-            filePath = Directory.GetParent(Directory.GetParent(Directory.GetParent(filePath).FullName).FullName).FullName;
-            filePath += @"/TextFiles/GamesQuestions.txt";
-            IList list = new ArrayList();
-            ReadFromFiles.ReadQuestions(filePath, ref list);
-            for (int i = 0; i < list.Count; i++)
-            {
-                Console.WriteLine(list[i].ToString());
-            }
-            Console.ReadKey();
+        public static void CreateCarsQuiz(string localPath, string filePath) {
+            CreateQuiz(localPath, filePath);
+        }
+       
+        public static void CreateGamesQuiz(string localPath, string filePath) {
+            CreateQuiz(localPath, filePath);
         }
         
-        public static void CreateGeographyQuiz() {
-            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException());
-            filePath = Directory.GetParent(Directory.GetParent(Directory.GetParent(filePath).FullName).FullName).FullName;
-            filePath += @"/TextFiles/GeographyQuestions.txt";
-            IList list = new ArrayList();
-            ReadFromFiles.ReadQuestions(filePath, ref list);
-            for (int i = 0; i < list.Count; i++)
-            {
-                Console.WriteLine(list[i].ToString());
-            }
-            Console.ReadKey();
+        public static void CreateGeographyQuiz(string localPath, string filePath) {
+            CreateQuiz(localPath, filePath);
         }
-        public static void CreateMixedQuiz() {
-            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException());
-            filePath = Directory.GetParent(Directory.GetParent(Directory.GetParent(filePath).FullName).FullName).FullName;
-            filePath += @"/TextFiles/MixedQuestions.txt";
-            IList list = new ArrayList();
-            ReadFromFiles.ReadQuestions(filePath, ref list);
-            for (int i = 0; i < list.Count; i++)
-            {
-                Console.WriteLine(list[i].ToString());
-            }
-            Console.ReadKey();
-        }
-        
 
+        public static void CreateMixedQuiz(string localPath, string filePath) {
+            CreateQuiz(localPath, filePath);
+        }
     }
 }

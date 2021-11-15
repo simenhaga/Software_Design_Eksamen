@@ -49,24 +49,25 @@ namespace QuizApp {
                 switch (chosenCategory)
                 {
                     case "1":
-                        OutputHandler.Write(animal);
-                        CreateAnimalQuiz();
+                        OutputHandler.Write(animal); {
+                        CreateAnimalQuiz(localPath: animal, @"/TextFiles/AnimalQuestions.txt");
+                    }
                         break;
                     case "2":
                         OutputHandler.Write(car);
-                        CreateCarsQuiz();
+                        CreateCarsQuiz(car, @"/TextFiles/CarsQuestions.txt");
                         break;
                     case "3":
                         OutputHandler.Write(game);
-                        CreateGamesQuiz();
+                        CreateGamesQuiz(game, @"/TextFiles/GamesQuestions.txt");
                         break;
                     case "4":
                         OutputHandler.Write(geography);
-                        CreateGeographyQuiz();
+                        CreateGeographyQuiz(geography, @"/TextFiles/GeographyQuestions.txt");
                         break;
                     case "5":
                         OutputHandler.Write(mixed);
-                        CreateMixedQuiz();
+                        CreateMixedQuiz(mixed, @"/TextFiles/MixedQuestions.txt");
                         break;
                     default:
                         OutputHandler.Write(invalidInput);
