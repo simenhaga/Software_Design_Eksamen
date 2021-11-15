@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using static QuizApp.ReadFromFile;
 
 namespace QuizApp {
@@ -67,7 +71,17 @@ namespace QuizApp {
                         break;
                     case "5":
                         OutputHandler.Write(mixed);
-                        ReadFromFiles.ReadQuestions();
+                        string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException());
+                        filePath = Directory.GetParent(Directory.GetParent(Directory.GetParent(filePath).FullName).FullName).FullName;
+                        filePath += @"/TextFiles/AnimalQuestions.txt";
+                        IList list = new ArrayList();
+                        ReadFromFiles.ReadQuestions(filePath, ref list);
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            Console.WriteLine(list[i].ToString());
+                        }
+
+                        Console.ReadKey();
                         break;
                     default:
                         OutputHandler.Write(invalidInput);
