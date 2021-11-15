@@ -7,6 +7,12 @@ namespace QuizApp
         private string AcceptInput { get; set; }
 
 
+        public static string Input()
+        {
+            Console.Write(">> ");
+            return Console.ReadLine();
+        }
+
         /*public void HandelInput()
         {
             while ()

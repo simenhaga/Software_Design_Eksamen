@@ -5,28 +5,25 @@ namespace QuizApp {
     class Program {
         public static void Main(string[] args)
         {
-            OutputHandler outputHandler = new();
-           
+            OutputHandler.Write("Hello! Welcome to our super cool quiz application. \r\n" + 
+                                "Please enter your username");
 
-            outputHandler.Write("Hello! Welcome to our super cool quiz application. \r\n" + 
-                              "Please enter your username");
-
-            var userName = Console.ReadLine();
+            var userName = InputHandler.Input();
 
             if (userName == "taken")
             {
                 do
                 {
-                    outputHandler.Write("Username is already taken, please enter another username");
-                    userName = Console.ReadLine();
+                    OutputHandler.Write("Username is already taken, please enter another username");
+                    userName = InputHandler.Input();
 
                 } while (userName == "taken");
                 
-                outputHandler.Write("Welcome " + userName + "\r\n" + "Please choose a category");
+                OutputHandler.Write("Welcome " + userName + "\r\n" + "Please choose a category");
             }
             else
             {
-                outputHandler.Write("Welcome " + userName + "!\r\n" + 
+                OutputHandler.Write("Welcome " + userName + "!\r\n" + 
                                   "Enter the number of the quiz you want\r\n" +
                                   "1. Animal quiz\r\n" +
                                   "2. Car quiz\r\n" +
@@ -49,31 +46,31 @@ namespace QuizApp {
                 const string mixed = "You chose mixed category quiz";
                 const string invalidInput = "Invalid input, please enter number between 1-5";
 
-                string chosenCategory = Console.ReadLine();
+                string chosenCategory = InputHandler.Input();
                 switch (chosenCategory)
                 {
                     case "1":
-                        outputHandler.Write(animal);
+                        OutputHandler.Write(animal);
                         CreateAnimalQuiz();
                         break;
                     case "2":
-                        outputHandler.Write(car);
+                        OutputHandler.Write(car);
                         CreateCarsQuiz();
                         break;
                     case "3":
-                        outputHandler.Write(game);
+                        OutputHandler.Write(game);
                         CreateGamesQuiz();
                         break;
                     case "4":
-                        outputHandler.Write(geography);
+                        OutputHandler.Write(geography);
                         CreateGeographyQuiz();
                         break;
                     case "5":
-                        outputHandler.Write(mixed);
+                        OutputHandler.Write(mixed);
                         ReadFromFiles.ReadQuestions();
                         break;
                     default:
-                        outputHandler.Write(invalidInput);
+                        OutputHandler.Write(invalidInput);
                         continue;
                 }
 

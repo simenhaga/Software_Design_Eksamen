@@ -6,10 +6,9 @@ namespace QuizApp
     {
         public string OutputToUser { get; set; }
 
-        public void Write(string userOutput)
+        public static void Write(string text)
         {
-            OutputToUser = userOutput;
-            Console.WriteLine(userOutput);
+            Console.WriteLine(text);
         }
     }
 }
