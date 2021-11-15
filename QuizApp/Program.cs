@@ -71,17 +71,7 @@ namespace QuizApp {
                         break;
                     case "5":
                         OutputHandler.Write(mixed);
-                        string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException());
-                        filePath = Directory.GetParent(Directory.GetParent(Directory.GetParent(filePath).FullName).FullName).FullName;
-                        filePath += @"/TextFiles/AnimalQuestions.txt";
-                        IList list = new ArrayList();
-                        ReadFromFiles.ReadQuestions(filePath, ref list);
-                        for (int i = 0; i < list.Count; i++)
-                        {
-                            Console.WriteLine(list[i].ToString());
-                        }
-
-                        Console.ReadKey();
+                        CreateMixedQuiz();
                         break;
                     default:
                         OutputHandler.Write(invalidInput);
