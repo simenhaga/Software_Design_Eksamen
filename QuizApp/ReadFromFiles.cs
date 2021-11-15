@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using MySqlX.XDevAPI.Common;
 using NUnit.Framework;
 using Ubiety.Dns.Core;
 
@@ -22,12 +23,21 @@ namespace QuizApp {
 
             // Read the file and display it line by line.
             StreamReader file = new StreamReader(filePath);
-                while((line = file.ReadLine()) != null) {
-                    string[] element = line.Split('\n');
-                    listOfAnimalQuestions.Add(new Questions(element[0], element[1],element[2], element[3]));
-                }
-                file.Close();
+            string question;
+            string optionOne;
+            string optionTwo;
+            string optionThree;
+            
+            while(!file.EndOfStream) {
+                question = file.EndOfStream ? string.Empty : file.ReadLine();
+                optionOne = file.EndOfStream ? string.Empty : file.ReadLine();
+                optionTwo = file.EndOfStream ? string.Empty : file.ReadLine();
+                optionThree = file.EndOfStream ? string.Empty : file.ReadLine();
+                listOfAnimalQuestions.Add(new Questions(question, optionOne, optionTwo, optionThree));
+            } 
+            file.Close();
             return listOfAnimalQuestions;
         }
+        
     }
 }
