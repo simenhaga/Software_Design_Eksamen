@@ -15,44 +15,52 @@ namespace QuizApp {
             string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException());
             filePath = Directory.GetParent(Directory.GetParent(Directory.GetParent(filePath).FullName).FullName).FullName;
             filePath += @"/TextFiles/AnimalQuestions.txt";
-            List<string> lines = File.ReadAllLines(filePath).ToList();
-
-             foreach (string line in lines) {
-                 Console.WriteLine(line);
-             }
+            IList list = new ArrayList();
+            ReadFromFiles.ReadQuestions(filePath, ref list);
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine(list[i].ToString());
+            }
+            Console.ReadKey();
         }
 
         public static void CreateCarsQuiz() {
-            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException());;
+            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException());
             filePath = Directory.GetParent(Directory.GetParent(Directory.GetParent(filePath).FullName).FullName).FullName;
             filePath += @"/TextFiles/CarsQuestions.txt";
-            List<string> lines = File.ReadAllLines(filePath).ToList();
-
-            foreach (string line in lines) {
-                Console.WriteLine(line);
+            IList list = new ArrayList();
+            ReadFromFiles.ReadQuestions(filePath, ref list);
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine(list[i].ToString());
             }
+            Console.ReadKey();
         }
         
         public static void CreateGamesQuiz() {
-            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException());;
+            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException());
             filePath = Directory.GetParent(Directory.GetParent(Directory.GetParent(filePath).FullName).FullName).FullName;
             filePath += @"/TextFiles/GamesQuestions.txt";
-            List<string> lines = File.ReadAllLines(filePath).ToList();
-
-            foreach (string line in lines) {
-                Console.WriteLine(line);
+            IList list = new ArrayList();
+            ReadFromFiles.ReadQuestions(filePath, ref list);
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine(list[i].ToString());
             }
+            Console.ReadKey();
         }
         
         public static void CreateGeographyQuiz() {
-            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException());;
+            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException());
             filePath = Directory.GetParent(Directory.GetParent(Directory.GetParent(filePath).FullName).FullName).FullName;
             filePath += @"/TextFiles/GeographyQuestions.txt";
-            List<string> lines = File.ReadAllLines(filePath).ToList();
-
-            foreach (string line in lines) {
-                Console.WriteLine(line);
+            IList list = new ArrayList();
+            ReadFromFiles.ReadQuestions(filePath, ref list);
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine(list[i].ToString());
             }
+            Console.ReadKey();
         }
 
     }
