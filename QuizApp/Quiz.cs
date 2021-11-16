@@ -98,7 +98,7 @@ namespace QuizApp
                     
                     case Command.GameQuiz:
                         OutputHandler.Write("You chose the game quiz");
-                        QuizCreator.CreateCarQuiz();
+                        QuizCreator.CreateGamesQuiz();
                         break;
                     
                     case Command.GeographyQuiz:
@@ -108,7 +108,7 @@ namespace QuizApp
                     
                     case Command.CarQuiz:
                         OutputHandler.Write("You chose the car quiz");
-                        QuizCreator.CreateCarQuiz();
+                        QuizCreator.CreateCarsQuiz();
                         break;
                     
                     case Command.MixedQuiz:
