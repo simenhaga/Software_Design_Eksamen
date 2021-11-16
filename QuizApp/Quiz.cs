@@ -2,7 +2,7 @@ namespace QuizApp
 {
     public class Quiz
     {
-        public Quiz()
+       /* public Quiz()
         {
             OutputHandler.Write("Hello! Welcome to our super cool quiz application. \r\n" +
                                 "Please enter your username");
@@ -32,9 +32,9 @@ namespace QuizApp
             }
 
             ChooseCategory();
-        }
+        }*/
 
-        public void ChooseCategory()
+        /*public void ChooseCategory()
         {
             while (true)
             {
@@ -75,7 +75,7 @@ namespace QuizApp
 
                 break;
             }
-        }
+        }*/
 
         public void Start()
         {
@@ -83,7 +83,7 @@ namespace QuizApp
 
             while (command != Command.Quit)
             {
-                command = GreetUser(out string userName);
+                command = Menu(out string param);
 
                 switch (command)
                 {
@@ -92,45 +92,62 @@ namespace QuizApp
                         break;
                     
                     case Command.AnimalsQuiz:
+                        string asd = param;
                         OutputHandler.Write("You chose the animal quiz");
-                        QuizCreator.CreateAnimalQuiz();
+                        QuizCreator.CreateAnimalQuiz( @"/TextFiles/AnimalQuestions.txt");
                         break;
                     
                     case Command.GameQuiz:
                         OutputHandler.Write("You chose the game quiz");
-                        QuizCreator.CreateGamesQuiz();
+                        QuizCreator.CreateGamesQuiz(@"/TextFiles/GamesQuestions.txt");
                         break;
                     
                     case Command.GeographyQuiz:
                         OutputHandler.Write("You chose the geography quiz");
-                        QuizCreator.CreateGeographyQuiz();
+                        QuizCreator.CreateGeographyQuiz(@"/TextFiles/GeographyQuestions.txt");
                         break;
                     
                     case Command.CarQuiz:
                         OutputHandler.Write("You chose the car quiz");
-                        QuizCreator.CreateCarsQuiz();
+                        QuizCreator.CreateCarsQuiz(@"/TextFiles/CarsQuestions.txt");
                         break;
                     
                     case Command.MixedQuiz:
                         OutputHandler.Write("You chose the mixed quiz");
-                        QuizCreator.CreateMixedQuiz();
+                        QuizCreator.CreateMixedQuiz(@"/TextFiles/MixedQuestions.txt");
                         break;
                 }
             }
         }
 
-        private Command GreetUser(out string userName)
+        private Command Menu(out string param)
+        {
+            GreetQuizUser(out var userName);
+
+            string[] choices =
+            {
+                "Game....... starts a quiz with game based questions",
+                "Animal..... starts a quiz with animal questions",
+                "Car........ starts a quiz with car questions",
+                "Geography.. starts a quiz with Geography questions",
+                "Mixed...... starts a quiz with mixed questions",
+                "Quit....... ends the program"
+            };
+            OutputHandler.WriteQuizMenu("THE QUIZ APPLICATION\n Welcome: " + userName +"", choices);
+            
+            return InputHandler.ReadMenuChoices(out param);
+        }
+
+        private static void GreetQuizUser(out string userName)
         {
             OutputHandler.Write("Hello! Welcome to our super cool quiz application. \r\n" +
                                 "Please enter your username");
-            
+
             userName = InputHandler.Input();
 
             InputHandler.ValidateUser(userName);
 
-            OutputHandler.Write("Welcome " + userName + "\r\n" + "Please choose a category");
-            OutputHandler.WriteQuizMenu();
-            return InputHandler.ReadMenuChoices(out string param);
+            OutputHandler.Write("Welcome " + userName + "\r\n");
         }
     }
 }

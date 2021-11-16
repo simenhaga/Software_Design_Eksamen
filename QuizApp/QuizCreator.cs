@@ -4,8 +4,9 @@ using System.Collections;
 
 namespace QuizApp {
     public class QuizCreator {
-        private static void CreateQuiz(string localPath, string filePath) {
-            localPath = PathManager.FindPath(filePath);
+        private static void CreateQuiz(string filePath)
+        {
+            var localPath = PathManager.FindPath(filePath);
             DrawQuiz(localPath);
         }
         private static void DrawQuiz(string localPath) {
@@ -22,24 +23,24 @@ namespace QuizApp {
             }
             Console.ReadKey();
         }
-        public static void CreateAnimalQuiz(string localPath, string filePath) {
-            CreateQuiz(localPath, filePath);
+        public static void CreateAnimalQuiz(string filePath) {
+            CreateQuiz(filePath);
         }
         
-        public static void CreateCarsQuiz(string localPath, string filePath) {
-            CreateQuiz(localPath, filePath);
+        public static void CreateCarsQuiz(string filePath) {
+            CreateQuiz(filePath);
         }
        
-        public static void CreateGamesQuiz(string localPath, string filePath) {
-            CreateQuiz(localPath, filePath);
+        public static void CreateGamesQuiz(string filePath) {
+            CreateQuiz(filePath);
         }
         
-        public static void CreateGeographyQuiz(string localPath, string filePath) {
-            CreateQuiz(localPath, filePath);
+        public static void CreateGeographyQuiz(string filePath) {
+            CreateQuiz(filePath);
         }
 
-        public static void CreateMixedQuiz(string localPath, string filePath) {
-            CreateQuiz(localPath, filePath);
+        public static void CreateMixedQuiz(string filePath) {
+            CreateQuiz(filePath);
         }
     }
 }

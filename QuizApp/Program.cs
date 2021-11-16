@@ -1,79 +1,10 @@
-﻿using static QuizApp.QuizCreator;
-
+﻿
 namespace QuizApp {
     class Program {
         public static void Main(string[] args)
         {
-            OutputHandler.Write("Hello! Welcome to our super cool quiz application. \r\n" + 
-                                "Please enter your username");
-
-            var userName = InputHandler.Input();
-
-            if (userName == "taken")
-            {
-                do
-                {
-                    OutputHandler.Write("Username is already taken, please enter another username");
-                    userName = InputHandler.Input();
-
-                } while (userName == "taken");
-                
-                OutputHandler.Write("Welcome " + userName + "\r\n" + "Please choose a category");
-            }
-            else
-            {
-                OutputHandler.Write("Welcome " + userName + "!\r\n" + 
-                                  "Enter the number of the quiz you want\r\n" +
-                                  "1. Animal quiz\r\n" +
-                                  "2. Car quiz\r\n" +
-                                  "3. Game quiz\r\n" +
-                                  "4. Geography quiz\r\n" +
-                                  "5. Mixed category quiz");
-            }
-
-            ChooseCategory();
+            new Quiz().Start();
         }
-        private static void ChooseCategory()
-        {
-            while (true)
-            {
-                const string animal = "You chose animal quiz";
-                const string car = "You chose car quiz";
-                const string game = "You chose game quiz";
-                const string geography = "You chose geography quiz";
-                const string mixed = "You chose mixed category quiz";
-                const string invalidInput = "Invalid input, please enter number between 1-5";
-
-                string chosenCategory = InputHandler.Input();
-                switch (chosenCategory)
-                {
-                    case "1":
-                        OutputHandler.Write(animal); 
-                        CreateAnimalQuiz(localPath: animal, @"/TextFiles/AnimalQuestions.txt");
-                        break;
-                    case "2":
-                        OutputHandler.Write(car);
-                        CreateCarsQuiz(car, @"/TextFiles/CarsQuestions.txt");
-                        break;
-                    case "3":
-                        OutputHandler.Write(game);
-                        CreateGamesQuiz(game, @"/TextFiles/GamesQuestions.txt");
-                        break;
-                    case "4":
-                        OutputHandler.Write(geography);
-                        CreateGeographyQuiz(geography, @"/TextFiles/GeographyQuestions.txt");
-                        break;
-                    case "5":
-                        OutputHandler.Write(mixed);
-                        CreateMixedQuiz(mixed, @"/TextFiles/MixedQuestions.txt");
-                        break;
-                    default:
-                        OutputHandler.Write(invalidInput);
-                        continue;
-                }
-
-                break;
-            }
-        }
+       
     }
 }

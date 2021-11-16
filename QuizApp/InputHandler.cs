@@ -27,30 +27,28 @@ namespace QuizApp
             if (input.Length > 1)
             {
                 param = input[1];
-            }
-            else
-            {
+            }else {
                 param = "";
             }
 
             switch (input[0])
             {
-                case "Game quiz":
+                case "game":
                     command = Command.GameQuiz;
                     break;
-                case "Animal quiz":
+                case "animal":
                     command = Command.AnimalsQuiz;
                     break;
-                case "Car quiz":
+                case "car":
                     command = Command.CarQuiz;
                     break;
-                case "Geography quiz":
+                case "geography":
                     command = Command.GeographyQuiz;
                     break;
-                case "Mixed quiz":
+                case "mixed":
                     command = Command.MixedQuiz;
                     break;
-                case "Quit":
+                case "quit":
                     command = Command.Quit;
                     break;
                 default:
