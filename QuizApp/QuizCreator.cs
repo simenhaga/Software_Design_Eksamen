@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using NUnit.Framework;
 
 
 namespace QuizApp {
@@ -9,24 +11,28 @@ namespace QuizApp {
             var localPath = PathManager.FindPath(filePath);
             DrawQuiz(localPath);
         }
-        private static void DrawQuiz(string localPath) {
-            IList list = new ArrayList();
-            ReadFromFiles.ReadQuestions(localPath, ref list);
-            // for (int i = 0; i < list.Count; i++) {
-            //     Console.WriteLine(list[i]?.ToString());
-            // }
-
-            foreach (var question in list)
+        
+        private static void DrawQuiz(string localPath)
+        {
+            List<Questions> qList = new List<Questions>();
+            ReadFromFiles.ReadQuestions(localPath, qList);
+            foreach (var question in qList)
             {
                 //Read one question at a time
                 Console.WriteLine(question.ToString());
-                var answer = InputHandler.Input(); //eller =console.Readline()
-                //var correctA = Questions.CorrectAnswer; //fiks dette
+                var answer = Console.ReadLine();
+                
+                if (answer == question.CorrectAnswer)
+                {
+                    Console.WriteLine("Yay");
+                }
+                else
+                {
+                    Console.WriteLine("Nay");
+                }
 
                 //Dealing with wrong input
-                Console.WriteLine(answer == ReadFromFiles.ReadAnswer(ref list)
-                    ? "You have answered correctly!"
-                    : "Your answer is wrong");
+                
                 
                 //Check if the input is correct and update score 
                 // if (answer == correctA)
