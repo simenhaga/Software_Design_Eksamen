@@ -18,8 +18,24 @@ namespace QuizApp {
 
             foreach (var question in list)
             {
+                //Read one question at a time
                 Console.WriteLine(question.ToString());
-                InputHandler.Input();
+                var answer = InputHandler.Input(); //eller =console.Readline()
+                //var correctA = Questions.CorrectAnswer; //fiks dette
+
+                //Dealing with wrong input
+                Console.WriteLine(answer == ReadFromFiles.ReadAnswer(ref list)
+                    ? "You have answered correctly!"
+                    : "Your answer is wrong");
+                
+                //Check if the input is correct and update score 
+                // if (answer == correctA)
+                // {
+                //     User.UserScore += 10;
+                //     Console.WriteLine("Score Updatet"); //bare forå teste
+                // }
+                
+                
             }
             Console.ReadKey();
         }
