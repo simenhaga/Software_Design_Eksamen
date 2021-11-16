@@ -35,7 +35,6 @@ namespace QuizApp {
         }
         private static void ChooseCategory()
         {
-            OutputHandler outputHandler = new();
             while (true)
             {
                 const string animal = "You chose animal quiz";
