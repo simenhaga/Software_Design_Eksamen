@@ -11,8 +11,14 @@ namespace QuizApp {
         private static void DrawQuiz(string localPath) {
             IList list = new ArrayList();
             ReadFromFiles.ReadQuestions(localPath, ref list);
-            for (int i = 0; i < list.Count; i++) {
-                Console.WriteLine(list[i]?.ToString());
+            // for (int i = 0; i < list.Count; i++) {
+            //     Console.WriteLine(list[i]?.ToString());
+            // }
+
+            foreach (var question in list)
+            {
+                Console.WriteLine(question.ToString());
+                InputHandler.Input();
             }
             Console.ReadKey();
         }

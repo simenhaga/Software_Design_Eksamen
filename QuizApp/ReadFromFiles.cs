@@ -5,7 +5,7 @@ using System.IO;
 namespace QuizApp {
     public class ReadFromFiles {
         
-        public static void ReadQuestions(string filePath, ref IList listAnimalQuestions){
+        public static void ReadQuestions(string filePath, ref IList listOfQuestions){
             //Read file from project path, not from local
             using (StreamReader sr = new StreamReader(filePath))
             {
@@ -18,7 +18,7 @@ namespace QuizApp {
                     optionOne = sr.EndOfStream ? string.Empty : sr.ReadLine();
                     optionTwo = sr.EndOfStream ? string.Empty : sr.ReadLine();
                     optionThree = sr.EndOfStream ? string.Empty : sr.ReadLine();
-                    listAnimalQuestions.Add(new Questions(question, optionOne, optionTwo, optionThree));
+                    listOfQuestions.Add(new Questions(question, optionOne, optionTwo, optionThree));
                 } 
             }
         }
