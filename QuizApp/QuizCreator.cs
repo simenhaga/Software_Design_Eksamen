@@ -14,37 +14,33 @@ namespace QuizApp {
         
         private static void DrawQuiz(string localPath)
         {
-            List<Questions> qList = new List<Questions>();
+            var qList = new List<Questions>();
             ReadFromFiles.ReadQuestions(localPath, qList);
+            
+            
             foreach (var question in qList)
             {
-                //Read one question at a time
+                //WRITE QUESTION AND READ ANSWER
                 Console.WriteLine(question.ToString());
                 var answer = Console.ReadLine();
                 
+                //CHECK IF THE ANSWER IS RIGHT
                 if (answer == question.CorrectAnswer)
                 {
                     Console.WriteLine("Yay");
+                    User.UserScore += 50;
                 }
                 else
                 {
                     Console.WriteLine("Nay");
+                    User.UserScore -= 15;
                 }
-
-                //Dealing with wrong input
-                
-                
-                //Check if the input is correct and update score 
-                // if (answer == correctA)
-                // {
-                //     User.UserScore += 10;
-                //     Console.WriteLine("Score Updatet"); //bare forå teste
-                // }
-                
-                
             }
-            Console.ReadKey();
+            //TELL THE USER WHAT THEIR SCORE IS
+            Console.WriteLine("Your score: " + User.UserScore);
         }
+        
+        
         public static void CreateAnimalQuiz(string filePath) {
             CreateQuiz(filePath);
         }
