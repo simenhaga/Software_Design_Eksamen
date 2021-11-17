@@ -68,6 +68,10 @@ namespace QuizApp
             OutputHandler.Write("Hello! Welcome to our super cool quiz application. \r\n" +
                                 "Please enter your username");
 
+            /*
+            Burde ikke dette være User sit userName?
+            Typ User.userName = InputHandler.Input();   
+            */
             userName = InputHandler.Input();
 
             InputHandler.ValidateUser(userName);
