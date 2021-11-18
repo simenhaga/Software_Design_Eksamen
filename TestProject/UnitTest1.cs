@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using NUnit.Framework;
@@ -14,7 +15,7 @@ namespace TestProject
 
         [Test]
         public void ShouldReadFromFile() {
-            var filepath = PathManager.GetPath(@"/TestFile.txt");
+            var filepath = PathManager.GetPath(@"/TextFiles/TestFile.txt");
             StreamReader sr = new StreamReader(filepath);
             string firstLine = sr.ReadLine();
             Assert.AreEqual("Who's your daddy?", firstLine);
@@ -22,7 +23,7 @@ namespace TestProject
 
         [Test]
         public void ShouldListQuestions() {
-            var filepath = PathManager.GetPath(@"/TestQuestion.txt");
+            var filepath = PathManager.GetPath(@"/TextFiles/TestQuestion.txt");
             List<Questions> testList = new List<Questions>();
             ReadFromFiles.ReadQuestions(filepath, testList);
             
@@ -30,6 +31,11 @@ namespace TestProject
             string firstLine = sr.ReadLine();
 
             Assert.AreEqual("What is your name?", firstLine);
+        }
+
+        [Test]
+        public void ShouldValidateUser() {
+        // pause
         }
     }
 }
