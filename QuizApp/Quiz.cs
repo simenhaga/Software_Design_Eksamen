@@ -89,10 +89,5 @@ namespace QuizApp
             log.WriteLine(scoreString);
             log.Close();
         }
-
-        public static void showHighScore()
-        {
-            
-        }
     }
 }
