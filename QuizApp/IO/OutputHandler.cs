@@ -1,5 +1,8 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace QuizApp
 {
@@ -38,6 +41,21 @@ namespace QuizApp
             InputHandler.ValidateUser(user);
 
             Write("Welcome " + user.UserName + "\r\n");
+        }
+
+        public static void ShowLeaderBoard()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow; 
+            Write("LEADERBOARD!!");
+            Write("HIGHSCORE");
+            LeaderBoard.ShowHighScore();
+            Write("ALL SCORES: ");
+            var scoreList = LeaderBoard.FindAllScores();
+            foreach (var score in scoreList)
+            {
+                Write(score.ToString());
+            }
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

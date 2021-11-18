@@ -8,6 +8,7 @@ namespace QuizApp
         GeographyQuiz,
         AnimalsQuiz,
         MixedQuiz,
+        LeaderBoard,
         Quit
     }
 }
