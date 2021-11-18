@@ -1,0 +1,36 @@
+@startuml
+class User{
+    - _userId : long
+    - _userName : string
+    +NewUser(userName)
+    +DeleteUser(userId)
+}
+
+class Category{
+- _categoryId : long
+- _categoryName : string
++
+}
+
+enum CategoryEnum{
+    Games,
+    Cars,
+    Geography,
+    Animals,
+    Mixed
+}
+
+class Leaderboard{
+- _userId : long
+- _username : string
+-_score : double
++ ShowLeaderboard()
++ UpdateLeaderBoard()
+}
+
+class Question{
+- _QuestionText : string
+- _Alternatives : string
+}
+
+@enduml

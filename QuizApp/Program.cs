@@ -1,9 +1,12 @@
-﻿using System;
+﻿
+using System;
 
 namespace QuizApp {
     class Program {
-        static void Main(string[] args) {
-            Console.WriteLine("Hello Herman and Camilla");
+        public static void Main(string[] args)
+        {
+            new Quiz().Start();
         }
+       
     }
 }
