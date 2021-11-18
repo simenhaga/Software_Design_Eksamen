@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using NUnit.Framework;
 
 
@@ -16,8 +18,10 @@ namespace QuizApp {
         {
             var qList = new List<Questions>();
             ReadFromFiles.ReadQuestions(localPath, qList);
-            
-            
+            User user = new User();
+            var score = User.UserScore;
+            var name = User.UserName;
+
             foreach (var question in qList)
             {
                 //WRITE QUESTION AND READ ANSWER
@@ -28,18 +32,42 @@ namespace QuizApp {
                 if (answer == question.CorrectAnswer)
                 {
                     Console.WriteLine("Yay");
-                    User.UserScore += 50;
+                    score += 50;
                 }
                 else
                 {
                     Console.WriteLine("Nay");
-                    User.UserScore -= 15;
+                    score -= 15;
                 }
             }
             //TELL THE USER WHAT THEIR SCORE IS
-            Console.WriteLine("Your score: " + User.UserScore);
+            Console.WriteLine("Your got " + score + "points!");
+            
+            //SAVE SCORE
+            var uScore = score.ToString();
+            var uName = name;
+            var tst = PathManager.FindPath(@"/TextFiles/UserScore.txt");
+
+            //File.WriteAllText(tst, uScore);
+            
+            StreamWriter log;
+
+            if (!File.Exists(tst))
+            {
+                log = new StreamWriter(tst);
+            }
+            else
+            {
+                log = File.AppendText(tst);
+            }
+
+// Write to the file:
+            log.WriteLine(uScore);
+            log.WriteLine(uName);
+
+// Close the stream:
+            log.Close();
         }
-        
         
         public static void CreateAnimalQuiz(string filePath) {
             CreateQuiz(filePath);
