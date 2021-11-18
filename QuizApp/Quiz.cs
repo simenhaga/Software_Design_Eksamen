@@ -17,7 +17,6 @@ namespace QuizApp
                         break;
                     
                     case Command.AnimalsQuiz:
-                        string asd = param;
                         OutputHandler.Write("You chose the animal quiz");
                         QuizCreator.CreateAnimalQuiz( @"/TextFiles/AnimalQuestions.txt");
                         break;
@@ -45,7 +44,7 @@ namespace QuizApp
             }
         }
 
-        private Command Menu(out string param)
+        public static Command Menu(out string param)
         {
             GreetQuizUser(out var userName);
 
