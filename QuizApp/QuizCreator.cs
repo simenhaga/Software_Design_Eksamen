@@ -21,7 +21,6 @@ namespace QuizApp {
             Quiz.GreetQuizUser(out string userName);
             var name = userName;
             var score = User.UserScore;
-            //var name = User.UserName;
 
             foreach (var question in qList)
             {
@@ -31,41 +30,25 @@ namespace QuizApp {
                 
                 //CHECK IF THE ANSWER IS RIGHT
                 if (answer == question.CorrectAnswer)
-                {
-                    Console.WriteLine("Yay");
+                { 
                     score += 50;
                 }
                 else
                 {
-                    Console.WriteLine("Nay");
                     score -= 15;
                 }
             }
+            
             //TELL THE USER WHAT THEIR SCORE IS
-            Console.WriteLine("Your got " + score + "points!");
+            Console.WriteLine("Your got " + score + " points!");
             
-            //SAVE SCORE
-            var uScore = score.ToString();
-            var tst = PathManager.FindPath(@"/TextFiles/UserScore.txt");
-
-            //File.WriteAllText(tst, uScore);
+            // WRITE SCORE AND NAME TO FILE
+            var scoreString = score.ToString();
+            var path = PathManager.FindPath(@"/TextFiles/UserScore.txt");
             
-            StreamWriter log;
-
-            if (!File.Exists(tst))
-            {
-                log = new StreamWriter(tst);
-            }
-            else
-            {
-                log = File.AppendText(tst);
-            }
-
-// Write to the file:
-            log.WriteLine(uScore);
+            var log = !File.Exists(path) ? new StreamWriter(path) : File.AppendText(path);
             log.WriteLine(name);
-
-// Close the stream:
+            log.WriteLine(scoreString);
             log.Close();
         }
         
