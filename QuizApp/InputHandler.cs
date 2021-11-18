@@ -11,10 +11,15 @@ namespace QuizApp
 
         public static void ValidateUser(string userName)
         {
-            while (userName == "taken")
+            var userList = ReadFromFiles.RetrieveUser(@"/TextFiles/UserScore.txt");
+            foreach (var name in userList)
             {
-                OutputHandler.Write("Username is already taken, please enter another username");
-                userName = Input();
+                while (userName == name.UserName)
+                {
+                    OutputHandler.Write("Username is already taken, please enter another username");
+                    userName = Input();
+
+                }
 
             }
         }

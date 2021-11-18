@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -19,6 +20,22 @@ namespace QuizApp {
                     listOfQuestions.Add(new Questions(question, optionOne, optionTwo, optionThree, correctAnswer));
                 }
             }
+        }
+
+        public static List<User> RetrieveUser(string filePath)
+        {
+            List<User> listOfUsers = new();
+            using (StreamReader streamReader = new StreamReader(filePath))
+            {
+                while (!streamReader.EndOfStream)
+                {
+                    var userName = streamReader.EndOfStream ? string.Empty : streamReader.ReadLine();
+                    long userScore = Convert.ToInt64(streamReader.EndOfStream ? string.Empty : streamReader.ReadLine());
+
+                    listOfUsers.Add(new User(userName, userScore));
+                }
+            }
+            return listOfUsers;
         }
     }
 }
