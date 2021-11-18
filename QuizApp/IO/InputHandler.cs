@@ -58,6 +58,9 @@ namespace QuizApp
                 case "mixed":
                     command = Command.MixedQuiz;
                     break;
+                case "leaderboard":
+                    command = Command.LeaderBoard;
+                    break;
                 case "quit":
                     command = Command.Quit;
                     break;

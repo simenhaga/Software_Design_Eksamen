@@ -27,11 +27,11 @@ namespace QuizApp
             set => _highscore = value;
         }
 
-        public static void showHighScore()
+        public static void ShowHighScore()
         {
             var scores = FindAllScores();
 
-            int highest = scores[0];
+            int highest = 0;
             for (int i = 0; i < scores.Count; i++)
             {
                 if (highest < scores[i])
@@ -48,7 +48,6 @@ namespace QuizApp
             List<int> scores = new();
             foreach (var users in user)
             {
-                Console.WriteLine(users.UserScore);
                 scores.Add((int) users.UserScore);
             }
             return scores;

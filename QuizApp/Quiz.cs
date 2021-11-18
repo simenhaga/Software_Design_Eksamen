@@ -49,6 +49,11 @@ namespace QuizApp
                         var mixedQuiz = new MixedDocument().CreateQuiz();
                         mixedQuiz.Generate();
                         break;
+                    
+                    case Command.LeaderBoard:
+                        OutputHandler.Write("You chose to show Leader board");
+                        OutputHandler.ShowLeaderBoard();
+                        break;
                 }
             }
         }
@@ -59,11 +64,12 @@ namespace QuizApp
 
             string[] choices =
             {
-                "Game....... starts a quiz with game based questions",
-                "Animal..... starts a quiz with animal questions",
-                "Car........ starts a quiz with car questions",
-                "Geography.. starts a quiz with Geography questions",
-                "Mixed...... starts a quiz with mixed questions",
+                "Game........ starts a quiz with game based questions",
+                "Animal...... starts a quiz with animal questions",
+                "Car......... starts a quiz with car questions",
+                "Geography... starts a quiz with Geography questions",
+                "Mixed....... starts a quiz with mixed questions",
+                "Leaderboard. displays the leaderboard",
                 "Quit....... ends the program"
             };
             OutputHandler.WriteQuizMenu("THE QUIZ APPLICATION\n Welcome: " + OutputHandler.user.UserName +"", choices);
