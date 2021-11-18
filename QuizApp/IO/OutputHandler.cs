@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace QuizApp
@@ -38,6 +39,18 @@ namespace QuizApp
             InputHandler.ValidateUser(user);
 
             Write("Welcome " + user.UserName + "\r\n");
+            ShowLeaderBoard();
+        }
+
+        public static void ShowLeaderBoard()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow; 
+            Write("LEADERBOARD!!");
+            Write("ALL SCORES: ");
+            LeaderBoard.FindAllScores();
+            Write("HIGHSCORE");
+            LeaderBoard.showHighScore();
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

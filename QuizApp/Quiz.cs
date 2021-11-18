@@ -73,7 +73,7 @@ namespace QuizApp
 
         public static void SaveNameAndScore()
         {
-            Console.WriteLine("Your got " + OutputHandler.user.UserScore + " points!");
+            Console.WriteLine("You got " + OutputHandler.user.UserScore + " points!");
             
             var scoreString = OutputHandler.user.UserScore.ToString();
             var path = PathManager.GetPath(@"/TextFiles/UserScore.txt");
@@ -82,6 +82,11 @@ namespace QuizApp
             log.WriteLine(OutputHandler.user.UserName);
             log.WriteLine(scoreString);
             log.Close();
+        }
+
+        public static void showHighScore()
+        {
+            
         }
     }
 }
