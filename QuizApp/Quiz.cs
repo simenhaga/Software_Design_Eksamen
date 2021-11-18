@@ -70,7 +70,7 @@ namespace QuizApp
                 "Geography... starts a quiz with Geography questions",
                 "Mixed....... starts a quiz with mixed questions",
                 "Leaderboard. displays the leaderboard",
-                "Quit....... ends the program"
+                "Quit........ ends the program"
             };
             OutputHandler.WriteQuizMenu("THE QUIZ APPLICATION\n Welcome: " + OutputHandler.user.UserName +"", choices);
             
