@@ -18,9 +18,10 @@ namespace QuizApp {
         {
             var qList = new List<Questions>();
             ReadFromFiles.ReadQuestions(localPath, qList);
-            User user = new User();
+            Quiz.GreetQuizUser(out string userName);
+            var name = userName;
             var score = User.UserScore;
-            var name = User.UserName;
+            //var name = User.UserName;
 
             foreach (var question in qList)
             {
@@ -45,7 +46,6 @@ namespace QuizApp {
             
             //SAVE SCORE
             var uScore = score.ToString();
-            var uName = name;
             var tst = PathManager.FindPath(@"/TextFiles/UserScore.txt");
 
             //File.WriteAllText(tst, uScore);
@@ -63,7 +63,7 @@ namespace QuizApp {
 
 // Write to the file:
             log.WriteLine(uScore);
-            log.WriteLine(uName);
+            log.WriteLine(name);
 
 // Close the stream:
             log.Close();
