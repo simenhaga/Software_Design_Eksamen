@@ -34,8 +34,12 @@ namespace TestProject
         }
 
         [Test]
-        public void ShouldValidateUser() {
-        // pause
+        public void ShouldWriteMenu() {
+            string title = "Meny choices";
+            string[] choices = {"1", "2", "3"};
+            OutputHandler.WriteQuizMenu(title, choices);
+
+            Assert.AreEqual(3, choices.Length);
         }
     }
 }
