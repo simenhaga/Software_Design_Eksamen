@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace QuizApp {
     public class PathManager {
-        public static string FindPath(string filePath) {
+        public static string GetPath(string filePath) {
             string localPath;
             localPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ??
                                      throw new InvalidOperationException());

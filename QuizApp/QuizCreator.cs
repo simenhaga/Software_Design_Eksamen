@@ -8,7 +8,7 @@ namespace QuizApp {
     public class QuizCreator {
         private static void CreateQuiz(string filePath)
         {
-            var localPath = PathManager.FindPath(filePath);
+            var localPath = PathManager.GetPath(filePath);
             DrawQuiz(localPath);
         }
         
