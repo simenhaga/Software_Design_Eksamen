@@ -9,18 +9,23 @@ namespace QuizApp
             return Console.ReadLine();
         }
 
-        public static void ValidateUser(string userName)
+        public static void ValidateUser(User user)
         {
-            var userList = ReadFromFiles.RetrieveUser();
-            foreach (var name in userList)
+            if (PathManager.GetPath(@"/TextFiles/UserScore.txt") != String.Empty)
             {
-                while (userName == name.UserName)
+                var userList = ReadFromFiles.RetrieveUser();
+                foreach (var name in userList)
                 {
-                    OutputHandler.Write("Username is already taken, please enter another username");
-                    userName = Input();
-
+                    while (user.UserName == name.UserName)
+                    {
+                        OutputHandler.Write("Username is already taken, please enter another username");
+                        user.UserName = Input();
+                    }
                 }
-
+            }
+            else
+            {
+                user.UserName = Input();
             }
         }
 

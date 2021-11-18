@@ -83,7 +83,7 @@ namespace QuizApp
             Typ User.userName = InputHandler.Input();   
             */
 
-            InputHandler.ValidateUser(user.UserName);
+            InputHandler.ValidateUser(user);
 
             OutputHandler.Write("Welcome " + user.UserName + "\r\n");
         }

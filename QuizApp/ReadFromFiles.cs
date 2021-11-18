@@ -28,6 +28,7 @@ namespace QuizApp {
             List<User> listOfUsers = new();
             using (StreamReader streamReader = new StreamReader(path))
             {
+
                 while (!streamReader.EndOfStream)
                 {
                     var userName = streamReader.EndOfStream ? string.Empty : streamReader.ReadLine();
