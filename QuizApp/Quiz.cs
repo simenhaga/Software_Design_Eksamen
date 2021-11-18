@@ -1,7 +1,8 @@
 namespace QuizApp
 {
     public class Quiz
-    { 
+    {
+        private static User user = new();
         public void Start()
         {
             var command = Command.InvalidChoice;
@@ -67,11 +68,16 @@ namespace QuizApp
             return InputHandler.ReadMenuChoices(out param);
         }
 
-        private static void GreetQuizUser(out string userName)
+        public static void GreetQuizUser(out string userName)
         {
+            userName = user.UserName;
             OutputHandler.Write("Hello! Welcome to our super cool quiz application. \r\n" +
                                 "Please enter your username");
 
+            /*
+            Burde ikke dette være User sit userName?
+            Typ User.userName = InputHandler.Input();   
+            */
             userName = InputHandler.Input();
 
             InputHandler.ValidateUser(userName);

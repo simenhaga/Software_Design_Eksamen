@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using NUnit.Framework;
 
 
@@ -14,37 +16,42 @@ namespace QuizApp {
         
         private static void DrawQuiz(string localPath)
         {
-            List<Questions> qList = new List<Questions>();
+            var qList = new List<Questions>();
             ReadFromFiles.ReadQuestions(localPath, qList);
+            Quiz.GreetQuizUser(out string userName);
+            var name = userName;
+            var score = User.UserScore;
+
             foreach (var question in qList)
             {
-                //Read one question at a time
+                //WRITE QUESTION AND READ ANSWER
                 Console.WriteLine(question.ToString());
                 var answer = Console.ReadLine();
                 
+                //CHECK IF THE ANSWER IS RIGHT
                 if (answer == question.CorrectAnswer)
-                {
-                    Console.WriteLine("Yay");
+                { 
+                    score += 50;
                 }
                 else
                 {
-                    Console.WriteLine("Nay");
+                    score -= 15;
                 }
-
-                //Dealing with wrong input
-                
-                
-                //Check if the input is correct and update score 
-                // if (answer == correctA)
-                // {
-                //     User.UserScore += 10;
-                //     Console.WriteLine("Score Updatet"); //bare forå teste
-                // }
-                
-                
             }
-            Console.ReadKey();
+            
+            //TELL THE USER WHAT THEIR SCORE IS
+            Console.WriteLine("Your got " + score + " points!");
+            
+            // WRITE SCORE AND NAME TO FILE
+            var scoreString = score.ToString();
+            var path = PathManager.FindPath(@"/TextFiles/UserScore.txt");
+            
+            var log = !File.Exists(path) ? new StreamWriter(path) : File.AppendText(path);
+            log.WriteLine(name);
+            log.WriteLine(scoreString);
+            log.Close();
         }
+        
         public static void CreateAnimalQuiz(string filePath) {
             CreateQuiz(filePath);
         }
