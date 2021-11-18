@@ -10,6 +10,8 @@ namespace QuizApp
             List<Questions> questionsList = new();
             ReadFromFiles.ReadQuestions(filePath, questionsList);
             QuestionValidation.CheckAnswer(questionsList, Quiz.GetUser());
+            Quiz.SaveNameAndScore();
+
         }
     }
 }
