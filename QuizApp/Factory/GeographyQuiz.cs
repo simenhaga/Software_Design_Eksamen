@@ -9,7 +9,7 @@ namespace QuizApp
             var filePath = PathManager.GetPath(@"/TextFiles/GeographyQuestions.txt");
             List<Questions> questionsList = new();
             ReadFromFiles.ReadQuestions(filePath, questionsList);
-            QuestionValidation.CheckAnswer(questionsList, Quiz.GetUser());
+            QuestionValidation.CheckAnswer(questionsList, User.GetUser());
             Quiz.SaveNameAndScore();
         }
     }

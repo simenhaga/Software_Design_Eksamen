@@ -24,8 +24,6 @@ namespace QuizApp
                     user.UserScore -= 15;
                 }
             }
-
-            Console.ReadKey();
         }
     }
 }

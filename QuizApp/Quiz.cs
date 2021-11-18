@@ -6,7 +6,6 @@ namespace QuizApp
 {
     public class Quiz
     {
-        private static User user;
         public void Start()
         {
             var command = Command.InvalidChoice;
@@ -56,7 +55,7 @@ namespace QuizApp
 
         public static Command Menu(out string param)
         {
-            GreetQuizUser();
+            OutputHandler.GreetQuizUser();
 
             string[] choices =
             {
@@ -67,50 +66,20 @@ namespace QuizApp
                 "Mixed...... starts a quiz with mixed questions",
                 "Quit....... ends the program"
             };
-            OutputHandler.WriteQuizMenu("THE QUIZ APPLICATION\n Welcome: " + user.UserName +"", choices);
+            OutputHandler.WriteQuizMenu("THE QUIZ APPLICATION\n Welcome: " + OutputHandler.user.UserName +"", choices);
             
             return InputHandler.ReadMenuChoices(out param);
         }
 
-        public static void GreetQuizUser()
-        {
-            OutputHandler.Write("Hello! Welcome to our super cool quiz application. \r\n" +
-                                "Please enter your username");
-
-            CreateUser();
-            /*
-            Burde ikke dette være User sit userName?
-            Typ User.userName = InputHandler.Input();   
-            */
-
-            InputHandler.ValidateUser(user);
-
-            OutputHandler.Write("Welcome " + user.UserName + "\r\n");
-        }
-
-        public static void CreateUser()
-        {
-            var userName = InputHandler.Input();
-            var userScore = 0;
-            user = new(userName, userScore);
-        }
-
-        public static User GetUser()
-        {
-            return user;
-        }
-
         public static void SaveNameAndScore()
         {
-            //TELL THE USER WHAT THEIR SCORE IS
-            Console.WriteLine("Your got " + user.UserScore + " points!");
+            Console.WriteLine("Your got " + OutputHandler.user.UserScore + " points!");
             
-            // WRITE SCORE AND NAME TO FILE
-            var scoreString = user.UserScore.ToString();
+            var scoreString = OutputHandler.user.UserScore.ToString();
             var path = PathManager.GetPath(@"/TextFiles/UserScore.txt");
             
             var log = !File.Exists(path) ? new StreamWriter(path) : File.AppendText(path);
-            log.WriteLine(user.UserName);
+            log.WriteLine(OutputHandler.user.UserName);
             log.WriteLine(scoreString);
             log.Close();
         }

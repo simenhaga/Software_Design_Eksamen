@@ -4,6 +4,7 @@ namespace QuizApp
 {
     public static class OutputHandler
     {
+        public static User user;
         public static void Write(string text)
         {
             Console.WriteLine(text);
@@ -23,6 +24,19 @@ namespace QuizApp
             Write("Enter a command to choose category\n or (quit) to end program");
             Write("======================================================");
 
+        }
+
+
+        public static void GreetQuizUser()
+        {
+            Write("Hello! Welcome to our super cool quiz application. \r\n" +
+                                "Please enter your username");
+
+            User.CreateUser();
+
+            InputHandler.ValidateUser(user);
+
+            Write("Welcome " + user.UserName + "\r\n");
         }
     }
 }
