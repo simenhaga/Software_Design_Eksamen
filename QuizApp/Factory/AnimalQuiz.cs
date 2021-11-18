@@ -10,10 +10,7 @@ namespace QuizApp
             var filePath = PathManager.GetPath(@"/TextFiles/AnimalQuestions.txt");
             List<Questions> questionsList = new();
             ReadFromFiles.ReadQuestions(filePath, questionsList);
-            foreach (var question in questionsList)
-            {
-                OutputHandler.Write(question.ToString());
-            }
+            QuestionValidation.CheckAnswer(questionsList);
         }
     }
 }

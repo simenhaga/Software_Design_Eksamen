@@ -18,27 +18,32 @@ namespace QuizApp
                     
                     case Command.AnimalsQuiz:
                         OutputHandler.Write("You chose the animal quiz");
-                        QuizCreator.CreateAnimalQuiz( @"/TextFiles/AnimalQuestions.txt");
+                        var animalQuiz = new AnimalDocument().CreateQuiz();
+                        animalQuiz.Generate();
                         break;
                     
                     case Command.GameQuiz:
                         OutputHandler.Write("You chose the game quiz");
-                        QuizCreator.CreateGamesQuiz(@"/TextFiles/GamesQuestions.txt");
+                        var gameQuiz = new GameDocument().CreateQuiz();
+                        gameQuiz.Generate();
                         break;
                     
                     case Command.GeographyQuiz:
                         OutputHandler.Write("You chose the geography quiz");
-                        QuizCreator.CreateGeographyQuiz(@"/TextFiles/GeographyQuestions.txt");
+                        var geographyQuiz = new GeographyDocument().CreateQuiz();
+                        geographyQuiz.Generate();
                         break;
                     
                     case Command.CarQuiz:
                         OutputHandler.Write("You chose the car quiz");
-                        QuizCreator.CreateCarsQuiz(@"/TextFiles/CarsQuestions.txt");
+                        var carQuiz = new CarDocument().CreateQuiz();
+                        carQuiz.Generate();
                         break;
                     
                     case Command.MixedQuiz:
                         OutputHandler.Write("You chose the mixed quiz");
-                        QuizCreator.CreateMixedQuiz(@"/TextFiles/MixedQuestions.txt");
+                        var mixedQuiz = new MixedDocument().CreateQuiz();
+                        mixedQuiz.Generate();
                         break;
                 }
             }
