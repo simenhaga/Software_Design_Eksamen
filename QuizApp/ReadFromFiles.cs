@@ -22,10 +22,11 @@ namespace QuizApp {
             }
         }
 
-        public static List<User> RetrieveUser(string filePath)
+        public static List<User> RetrieveUser()
         {
+            var path = PathManager.GetPath(@"/TextFiles/UserScore.txt");
             List<User> listOfUsers = new();
-            using (StreamReader streamReader = new StreamReader(filePath))
+            using (StreamReader streamReader = new StreamReader(path))
             {
                 while (!streamReader.EndOfStream)
                 {

@@ -11,7 +11,7 @@ namespace QuizApp
 
         public static void ValidateUser(string userName)
         {
-            var userList = ReadFromFiles.RetrieveUser(@"/TextFiles/UserScore.txt");
+            var userList = ReadFromFiles.RetrieveUser();
             foreach (var name in userList)
             {
                 while (userName == name.UserName)

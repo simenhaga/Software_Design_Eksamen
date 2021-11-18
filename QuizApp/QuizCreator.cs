@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -18,7 +18,7 @@ namespace QuizApp {
         {
             var qList = new List<Questions>();
             ReadFromFiles.ReadQuestions(localPath, qList);
-            Quiz.GreetQuizUser(out string userName);
+            Quiz.GreetQuizUser();
             var name = userName;
             var score = User.UserScore;
 
@@ -44,7 +44,7 @@ namespace QuizApp {
             
             // WRITE SCORE AND NAME TO FILE
             var scoreString = score.ToString();
-            var path = PathManager.FindPath(@"/TextFiles/UserScore.txt");
+            var path = PathManager.GetPath(@"/TextFiles/UserScore.txt");
             
             var log = !File.Exists(path) ? new StreamWriter(path) : File.AppendText(path);
             log.WriteLine(name);
@@ -72,4 +72,4 @@ namespace QuizApp {
             CreateQuiz(filePath);
         }
     }
-}
+}*/

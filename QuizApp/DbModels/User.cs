@@ -12,7 +12,7 @@ namespace QuizApp
 
         public long UserId { get; set; }
         public string UserName { get; set; }
-        public static long UserScore { get; set; }
+        public long UserScore { get; set; }
 
         public override string ToString()
         {
