@@ -30,7 +30,7 @@ namespace QuizApp
         public static void ShowHighScore()
         {
             var scores = FindAllScores();
-
+            
             int highest = 0;
             for (int i = 0; i < scores.Count; i++)
             {

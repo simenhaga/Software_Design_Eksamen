@@ -47,14 +47,14 @@ namespace QuizApp
         {
             Console.ForegroundColor = ConsoleColor.Yellow; 
             Write("LEADERBOARD!!");
+            Write("HIGHSCORE");
+            LeaderBoard.ShowHighScore();
             Write("ALL SCORES: ");
             var scoreList = LeaderBoard.FindAllScores();
             foreach (var score in scoreList)
             {
                 Write(score.ToString());
             }
-            Write("HIGHSCORE");
-            LeaderBoard.ShowHighScore();
             Console.ForegroundColor = ConsoleColor.White;
         }
     }
